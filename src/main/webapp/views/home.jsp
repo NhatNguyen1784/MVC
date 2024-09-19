@@ -4,6 +4,13 @@
     <title>HOME</title>
 </head>
 <body>
-    <h1> đây là trang chủ của user</h1>
+
+    <form action="/MVC/logout" method="get">
+
+        <h2>Hello!</h2>
+        <h1> đây là trang chủ của user</h1>
+
+        <br> <input type="submit" value="Logout" />
+    </form>
 </body>
 </html>

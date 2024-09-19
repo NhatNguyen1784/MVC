@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
     <title>Register</title>
@@ -79,14 +80,20 @@
     <form action="/MVC/register" method="post">
         <div class="container">
             <h1>Register</h1>
+            <h3 class="alter alter danger"> ${alterMsg} </h3>
+            <c:if test = "${alterMsg != null}"> <h3 class="alter alter danger"> ${alterMsg}</h3> </c:if>
             <p>Please fill in this form to create an account.</p>
+
             <hr>
 
             <label for="fullname"><b>Full name</b></label>
             <input type="text" placeholder="Enter full name" name="fullname" id="fullname" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="phone"><b>Phone</b></label>
+            <input type="text" placeholder="Enter phone" name="phone" id="phone" required>
 
             <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username" required>
@@ -94,8 +101,6 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
             <hr>
             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
