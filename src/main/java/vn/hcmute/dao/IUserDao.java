@@ -11,5 +11,11 @@ public interface IUserDao {
 
     UserModel findByUserName(String username) throws Exception;
 
-    void insert(UserModel user);
+    void insertUser(UserModel user);
+
+    boolean checkExistEmail(String email);
+
+    boolean checkExistPhone(String phone);
+
+    boolean checkExistUsername(String username);
 }

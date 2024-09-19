@@ -7,16 +7,20 @@ public class UserModel implements Serializable {
     private String username;
     private String password;
     private String fullname;
+    private String email;
+    private String phone;
     private int roleid;
 
     public UserModel() {
     }
 
-    public UserModel(int id, String username, String password, String fullname, int roleid) {
+    public UserModel(int id, String username, String password, String fullname, String email, String phone, int roleid) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
+        this.email = email;
+        this.phone = phone;
         this.roleid = roleid;
     }
 
@@ -52,6 +56,22 @@ public class UserModel implements Serializable {
         this.fullname = fullname;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public int getRoleid() {
         return roleid;
     }
@@ -67,6 +87,8 @@ public class UserModel implements Serializable {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", fullname='" + fullname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 ", roleid=" + roleid +
                 '}';
     }

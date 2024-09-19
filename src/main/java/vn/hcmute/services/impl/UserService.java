@@ -25,4 +25,31 @@ public class UserService implements IUserService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void insertUser(UserModel user) {
+
+    }
+
+    @Override
+    public boolean registerUser(String username, String password, String email, String phone, String fullname) {
+        return false;
+    }
+
+    @Override
+    public boolean checkExistEmail(String email) {
+        return false;
+    }
+
+    @Override
+    public boolean checkExistPhone(String phone) {
+        return false;
+    }
+
+    @Override
+    public boolean checkExistUsername(String username) {
+        return false;
+    }
+
+
 }

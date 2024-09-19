@@ -31,6 +31,8 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
                         rs.getString("username"),
                         rs.getString("password"),
                         rs.getString("fullname"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
                         rs.getInt("roleid")));
             }
             return list;
@@ -54,6 +56,8 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setFullname(rs.getString("fullname"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
                 user.setRoleid(rs.getInt("roleid"));
                 // chua co rang buoc nên username co thể trùng nên sài list để chứa các user
                 // nếu có ràng buộc thì return user
@@ -80,6 +84,8 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
                 user.setPassword(rs.getString("password"));
                 user.setUsername(rs.getString("username"));
                 user.setFullname(rs.getString("fullname"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
                 user.setRoleid(rs.getInt("roleid"));
                 return user;
             }
@@ -90,8 +96,22 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
     }
 
     @Override
-    public void insert(UserModel user) {
-
+    public void insertUser(UserModel user) {
+        try {
+            String query = "INSERT INTO users (username, password, fullname, email, phone, roleid) VALUES (?, ?, ?, ?, ?, ?)";
+            conn = new DBConnectMySQL().getDatabaseConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getFullname());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getPhone());
+            ps.setInt(6, user.getRoleid());
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) throws Exception {

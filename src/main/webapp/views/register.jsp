@@ -83,13 +83,16 @@
             <hr>
 
             <label for="fullname"><b>Full name</b></label>
-            <input type="text" placeholder="Enter Fullname" name="fullname" id="fullname" required>
+            <input type="text" placeholder="Enter full name" name="fullname" id="fullname" required>
 
-            <label for="username"><b>Email</b></label>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="username"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="username" id="username" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
             <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
