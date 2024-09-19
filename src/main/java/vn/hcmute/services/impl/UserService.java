@@ -28,27 +28,31 @@ public class UserService implements IUserService {
 
     @Override
     public void insertUser(UserModel user) {
-
+        userDao.insertUser(user);
     }
 
     @Override
     public boolean registerUser(String username, String password, String email, String phone, String fullname) {
-        return false;
+        if(userDao.checkExistUsername(username)){
+            return false;
+        }
+        userDao.insertUser(new UserModel(username, password, fullname, email, phone));
+        return true;
     }
 
     @Override
     public boolean checkExistEmail(String email) {
-        return false;
+        return userDao.checkExistEmail(email);
     }
 
     @Override
     public boolean checkExistPhone(String phone) {
-        return false;
+        return userDao.checkExistPhone(phone);
     }
 
     @Override
     public boolean checkExistUsername(String username) {
-        return false;
+        return userDao.checkExistUsername(username);
     }
 
 

@@ -98,7 +98,7 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
     @Override
     public void insertUser(UserModel user) {
         try {
-            String query = "INSERT INTO users (username, password, fullname, email, phone, roleid) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO users (username, password, fullname, email, phone) VALUES (?, ?, ?, ?, ?)";
             conn = new DBConnectMySQL().getDatabaseConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user.getUsername());
@@ -106,12 +106,74 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
             ps.setString(3, user.getFullname());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPhone());
-            ps.setInt(6, user.getRoleid());
             ps.executeUpdate();
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean checkExistEmail(String email) {
+        boolean flag = false;
+        try {
+            String query = "SELECT * FROM users WHERE email = ?";
+            conn = new DBConnectMySQL().getDatabaseConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                flag = true;
+            }
+            ps.close();
+            conn.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean checkExistPhone(String phone) {
+        boolean flag = false;
+        try {
+            String query = "SELECT * FROM users WHERE phone = ?";
+            conn = new DBConnectMySQL().getDatabaseConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, phone);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                flag = true;
+            }
+            ps.close();
+            conn.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean checkExistUsername(String username) {
+        boolean flag = false;
+        try {
+            String query = "SELECT * FROM users WHERE username = ?";
+            conn = new DBConnectMySQL().getDatabaseConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                flag = true;
+            }
+            ps.close();
+            conn.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     public static void main(String[] args) throws Exception {
