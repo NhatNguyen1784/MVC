@@ -24,19 +24,24 @@ public class ForgotPassController extends HttpServlet {
         if(!userService.checkExistEmail(email)) {
             alertMsg = "Email không đúng";
             req.setAttribute("alertMsg", alertMsg);
-            req.getRequestDispatcher("/views/forgot-pass.jsp").forward(req, resp);
-
-        } else if(!userService.checkExistUsername(username)) {
-            alertMsg = "Username không đúng";
-            req.setAttribute("alertMsg", alertMsg);
-            req.getRequestDispatcher("/views/forgot-pass.jsp").forward(req, resp);
+            req.getRequestDispatcher("/views/forgotPass.jsp").forward(req, resp);
 
         }
-        else {
-            // userService.updatePass(password)
+        if(!userService.checkExistUsername(username)) {
+            alertMsg = "Username không đúng";
+            req.setAttribute("alertMsg", alertMsg);
+            req.getRequestDispatcher("/views/forgotPass.jsp").forward(req, resp);
+
+        }
+        if(userService.resetPassword(email, username, password)) {
             alertMsg = "Đổi mật khẩu thành công";
             req.setAttribute("alertMsg", alertMsg);
             req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+        }
+        else {
+            alertMsg = "Error systems";
+            req.setAttribute("alertMsg", alertMsg);
+            req.getRequestDispatcher("/views/forgotPass.jsp").forward(req, resp);
         }
 
     }

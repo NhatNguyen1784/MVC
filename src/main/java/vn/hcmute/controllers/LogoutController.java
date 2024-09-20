@@ -24,6 +24,6 @@ public class LogoutController extends HttpServlet {
             alertMsg = "You are not logged in.";
         }
         req.setAttribute("alertMsg", alertMsg);
-        resp.sendRedirect(req.getContextPath() + "/login");
+        req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
     }
 }

@@ -183,8 +183,8 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
         try {
             conn = new DBConnectMySQL().getDatabaseConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(1, password);
+            ps.setString(2, username);
             ps.executeUpdate();
             ps.close();
             conn.close();

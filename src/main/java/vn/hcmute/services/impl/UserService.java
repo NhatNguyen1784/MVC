@@ -64,13 +64,12 @@ public class UserService implements IUserService {
     @Override
     public boolean resetPassword(String email, String username, String password) {
         if(userDao.checkExistEmail(email)){
-            return false;
+            if(userDao.checkExistUsername(username)){
+                userDao.resetPassword(username, password);
+                return true;
+            }
         }
-        if(userDao.checkExistUsername(username)){
-            return false;
-        }
-        userDao.resetPassword(username, password);
-        return true;
+        return false;
     }
 
 

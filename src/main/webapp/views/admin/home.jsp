@@ -4,7 +4,7 @@
     <title>HOME</title>
 </head>
 <body>
-<form action="logout" method="get">
+<form action="/MVC/logout" method="get">
 
     <h2>Hello!</h2>
     <h1> đây là trang chủ của Admin</h1>
