@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <form action="/MVC/logout" method="get">
+    <form action="logout" method="get">
 
         <h2>Hello!</h2>
         <h1> đây là trang chủ của user</h1>

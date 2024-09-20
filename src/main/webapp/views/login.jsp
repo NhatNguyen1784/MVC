@@ -80,13 +80,13 @@
 <%--        <input type="submit" value="Login"><br>--%>
 <%--        <input type="checkbox" checked = "checked" name="remember" > Remember me--%>
 <%--    </form>--%>
-    <form action="/MVC/login" method="post">
+    <form action="login" method="post">
 
         <div class="imgcontainer">
             <img src="img_avatar2.png" alt="Avatar" class="avatar">
         </div>
 
-        <c:if test = "${alterMsg != null}"> <h3 class="alter alter danger"> ${alertMsg}</h3> </c:if>
+        <c:if test = "${alertMsg != null}"> <h3 class="alter alter danger"> ${alertMsg}</h3> </c:if>
 
         <div class="container">
             <label for="username"><b>Username</b></label>

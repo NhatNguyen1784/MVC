@@ -33,10 +33,10 @@ public class LoginController extends HttpServlet {
         if (remember.equals("on")){
             isRemember = true;
         }
-        String alterMsg = "";
+        String alertMsg = "";
         if (username.isEmpty() || password.isEmpty()){
-            alterMsg = "Tài khoản hoặc mật khẩu không được rỗng";
-            req.setAttribute("alterMsg", alterMsg);
+            alertMsg = "Tài khoản hoặc mật khẩu không được rỗng";
+            req.setAttribute("alertMsg", alertMsg);
             req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
             return;
         }
@@ -51,8 +51,8 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/waiting");
         }
         else {
-            alterMsg = "Tài khoản hoặc mật khẩu không đúng";
-            req.setAttribute("alterMsg", alterMsg);
+            alertMsg = "Tài khoản hoặc mật khẩu không đúng";
+            req.setAttribute("alertMsg", alertMsg);
             req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
         }
     }

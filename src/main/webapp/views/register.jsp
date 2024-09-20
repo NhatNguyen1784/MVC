@@ -80,8 +80,7 @@
     <form action="/MVC/register" method="post">
         <div class="container">
             <h1>Register</h1>
-            <h3 class="alter alter danger"> ${alterMsg} </h3>
-            <c:if test = "${alterMsg != null}"> <h3 class="alter alter danger"> ${alterMsg}</h3> </c:if>
+            <c:if test = "${alertMsg != null}"> <h3 class="alter alter danger"> ${alertMsg}</h3> </c:if>
             <p>Please fill in this form to create an account.</p>
 
             <hr>

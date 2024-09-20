@@ -15,9 +15,15 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        String alertMsg = "";
         if(session != null) {
             session.invalidate();
+            alertMsg = "Loggout thành công";
         }
+        else {
+            alertMsg = "You are not logged in.";
+        }
+        req.setAttribute("alertMsg", alertMsg);
         resp.sendRedirect(req.getContextPath() + "/login");
     }
 }
