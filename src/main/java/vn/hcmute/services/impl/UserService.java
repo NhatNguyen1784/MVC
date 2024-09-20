@@ -61,5 +61,17 @@ public class UserService implements IUserService {
         return userDao.checkExistUsername(username);
     }
 
+    @Override
+    public boolean resetPassword(String email, String username, String password) {
+        if(userDao.checkExistEmail(email)){
+            return false;
+        }
+        if(userDao.checkExistUsername(username)){
+            return false;
+        }
+        userDao.resetPassword(username, password);
+        return true;
+    }
+
 
 }

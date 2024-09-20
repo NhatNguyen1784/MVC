@@ -11,17 +11,18 @@
     <title>Forgot Password</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="forgot-pass" method="post">
 
     <div class="container">
-        <label for="username"><b>Username</b></label>
-        <input type="text" id="username" placeholder="Enter Username" name="username" required>
 
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
+        <label for="username"><b>Username</b></label>
+        <input type="text" id="username" placeholder="Enter Username" name="username" required>
+
         <label for="psw"><b>Password</b></label>
-        <input type="password" id="psw" placeholder="Enter Password" name="password" required>
+        <input type="password" id="psw" placeholder="Enter Password" name="newpass" required>
 
         <button type="submit">OK</button>
 
