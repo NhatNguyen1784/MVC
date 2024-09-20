@@ -32,11 +32,17 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean registerUser(String username, String password, String email, String phone, String fullname) {
+    public boolean registerUser(String username, String password, String fullname, String email, String phone) {
+        if(userDao.checkExistEmail(email)){
+            return false;
+        }
+        if(userDao.checkExistPhone(phone)){
+            return false;
+        }
         if(userDao.checkExistUsername(username)){
             return false;
         }
-        userDao.insertUser(new UserModel(username, password, fullname, email, phone));
+        userDao.insertUser(new UserModel(username, password, fullname, email, phone, 1));
         return true;
     }
 

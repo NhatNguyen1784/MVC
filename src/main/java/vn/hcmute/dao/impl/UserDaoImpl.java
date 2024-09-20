@@ -98,7 +98,7 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
     @Override
     public void insertUser(UserModel user) {
         try {
-            String query = "INSERT INTO users (username, password, fullname, email, phone) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO users (username, password, fullname, email, phone, roleid) VALUES (?, ?, ?, ?, ?, ?)";
             conn = new DBConnectMySQL().getDatabaseConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, user.getUsername());
@@ -106,6 +106,7 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
             ps.setString(3, user.getFullname());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPhone());
+            ps.setInt(6, user.getRoleid());
             ps.executeUpdate();
         }
         catch (Exception e) {
@@ -177,6 +178,7 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
     }
 
     public static void main(String[] args) throws Exception {
+        IUserDao userDao = new UserDaoImpl();
         // test findAll
 //        UserDaoImpl userDao = new UserDaoImpl();
 //        List<UserModel> list = userDao.findAll();
@@ -187,7 +189,9 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
 //        IUserDao userDao = new UserDaoImpl();
 //        System.out.println(userDao.findByUserName("user1"));
         // test findByID
-        IUserDao userDao = new UserDaoImpl();
-        System.out.println(userDao.findById(1));
+//        IUserDao userDao = new UserDaoImpl();
+//        System.out.println(userDao.findById(1));
+        // test insert user
+        //userDao.insertUser(new UserModel("nnn333", "123", "nhatnguyeen","bbb123@gmail.com", "123456",1));
     }
 }

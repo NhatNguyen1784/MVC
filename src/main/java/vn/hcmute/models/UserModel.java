@@ -24,12 +24,13 @@ public class UserModel implements Serializable {
         this.roleid = roleid;
     }
 
-    public UserModel(String username, String password, String fullname, String email, String phone) {
+    public UserModel(String username, String password, String fullname, String email, String phone, int roleid) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.email = email;
         this.phone = phone;
+        this.roleid = roleid;
     }
 
     public int getId() {
